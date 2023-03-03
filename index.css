@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 * {
     box-sizing: border-box;
-    font-family: "Playfair Display";
 }
 
 html, body {
     margin: 0;
     padding: 0;
     background-color: #0f141a;
+    color: #c7ccce;
+    font-family: Helvetica;
 }
 
 .header{
     background-color: #1b202b;
+    font-family: "Playfair Display";
 }
 
 .main-header {
@@ -60,5 +61,11 @@ html, body {
 }
 
 .container {
-    
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5em;
+}
+
+.title {
+    font-size: 5em;
 }
