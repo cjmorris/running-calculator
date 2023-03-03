@@ -60,6 +60,10 @@ html, body {
     height: 30px;
 }
 
+.site-logo:hover{
+    cursor: pointer;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
