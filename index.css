@@ -65,11 +65,30 @@ html, body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 1.5em;
 }
 
 .title {
     font-size: 5em;
+}
+
+.calculator-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5% 0%;
+    flex-wrap: wrap;
+    height: 70vh;
+}
+
+.calculator {
+    display: inline-block;
+    background-color: #c7ccce;
+    width: 40%;
+    height: 80%;
+    margin: 40px;
+    border: 5px red solid;
+    border-radius: 1em;
 }
