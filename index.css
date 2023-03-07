@@ -80,15 +80,18 @@ html, body {
     align-items: center;
     padding: 5% 0%;
     flex-wrap: wrap;
-    height: 70vh;
 }
 
 .calculator {
     display: inline-block;
     background-color: #c7ccce;
-    width: 40%;
-    height: 80%;
-    margin: 40px;
+    width: clamp(300px, 65%, 500px);
+    height: 400px;
+    margin: 40px 5px;
     border: 5px red solid;
     border-radius: 1em;
+}
+
+.calculator-title {
+    color: black;
 }
