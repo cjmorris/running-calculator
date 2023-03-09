@@ -26,6 +26,52 @@
             <div class="calculator-container">
                 <div class="calculator pace-calculator">
                     <h2 class="calculator-title">Pace Calculator</h2>
+                    <select name="Distance" id="distance">
+                        <option value="5km">5k</option>
+                        <option value="10k">10k</option>
+                        <option value="HM">Half Marathon</option>
+                        <option value="Marathon">Marathon</option>
+                    </select>
+                    Time
+                    <input type="text">h
+                    <input type="text">m
+                    <input type="text">s
+                    Results
+                    <select name="Units" id="pace-units">
+                        <option value="Metric">Metric</option>
+                        <option value="Imperial">Imperial</option>
+                    </select>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Distance</th>
+                                <th>Time</th>
+                                <th>Pace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5km</td>
+                                <td>25:00</td>
+                                <td>5:00</td>
+                            </tr>
+                            <tr>
+                                <td>10km</td>
+                                <td>52:00</td>
+                                <td>5:12</td>
+                            </tr>
+                            <tr>
+                                <td>Half Marathon</td>
+                                <td>1:55:00</td>
+                                <td>5:27</td>
+                            </tr>
+                            <tr>
+                                <td>Marathon</td>
+                                <td>4:30:00</td>
+                                <td>6:23</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="calculator heart-rate-calculator">
                     <h2 class="calculator-title">Heart Rate Calculator</h2>

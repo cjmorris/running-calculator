@@ -75,6 +75,7 @@ html, body {
 }
 
 .calculator-container {
+    color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -87,13 +88,12 @@ html, body {
     background-color: #c7ccce;
     width: clamp(300px, 65%, 500px);
     height: 400px;
-    margin: 0px 5px;
+    margin: 5px;
     border: 5px red solid;
     border-radius: 10px;
 }
 
 .calculator-title {
-    color: black;
     text-align: center;
     margin: 0px;
     padding: 15px 0px;
