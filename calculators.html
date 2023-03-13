@@ -30,7 +30,7 @@
                         <form>
                             <div class="form-item">
                                 <label for="distance" class="calculator-label">Distance</label>
-                                <div class="calculator-selector">
+                                <div class="calculator-selector calculator-distance-selector">
                                     <select name="Distance" class="select input">
                                         <option value="5km">5k</option>
                                         <option value="10k">10k</option>
@@ -41,54 +41,59 @@
                             </div>
                             <div class="form-item">
                                 <label for="time" class="calculator-label">Time</label>
-                                <div class="calculator-selector">
-                                    <input type="text" class="time-input input">
-                                    <span class="time-unit">h</span>
-                                    <input type="text" class="time-input input">
-                                    <span class="time-unit">m</span>
-                                    <input type="text" class="time-input input">
-                                    <span class="time-unit">s</span>
+                                <div class="calculator-selector calculator-time-selector">
+                                    <div class="unit-input-box">
+                                        <input type="text" class="time-input input">
+                                        <span class="time-unit">h</span>
+                                    </div>
+                                    <div class="unit-input-box">
+                                        <input type="text" class="time-input input">
+                                        <span class="time-unit">m</span>
+                                    </div>
+                                    <div class="unit-input-box">
+                                        <input type="text" class="time-input input">
+                                        <span class="time-unit">s</span>
+                                    </div>
                                 </div>
                             </div>
                         </form>
-                        <div>
-                            <label for="results" class="calculator-label">Results</label>
+                        <div class="results">
                             <div class="calculator-selector">
                                 <button class="button">Metric</button>
                                 <button class="button">Imperial</button>
                             </div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Distance</th>
+                                        <th>Time</th>
+                                        <th>Pace</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>5km</td>
+                                        <td>25:00</td>
+                                        <td>5:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10km</td>
+                                        <td>52:00</td>
+                                        <td>5:12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Half Marathon</td>
+                                        <td>1:55:00</td>
+                                        <td>5:27</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Marathon</td>
+                                        <td>4:30:00</td>
+                                        <td>6:23</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Distance</th>
-                                    <th>Time</th>
-                                    <th>Pace</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>5km</td>
-                                    <td>25:00</td>
-                                    <td>5:00</td>
-                                </tr>
-                                <tr>
-                                    <td>10km</td>
-                                    <td>52:00</td>
-                                    <td>5:12</td>
-                                </tr>
-                                <tr>
-                                    <td>Half Marathon</td>
-                                    <td>1:55:00</td>
-                                    <td>5:27</td>
-                                </tr>
-                                <tr>
-                                    <td>Marathon</td>
-                                    <td>4:30:00</td>
-                                    <td>6:23</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
                 <div class="calculator heart-rate-calculator">
