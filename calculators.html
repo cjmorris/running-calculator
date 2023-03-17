@@ -27,40 +27,41 @@
                 <div class="calculator pace-calculator">
                     <h2 class="calculator-title">Pace Calculator</h2>
                     <div class="calculator-content">
-                        <form>
-                            <div class="form-item">
-                                <label for="distance" class="calculator-label">Distance</label>
-                                <div class="calculator-selector calculator-distance-selector">
-                                    <select name="Distance" class="select input">
-                                        <option value="5km">5k</option>
-                                        <option value="10k">10k</option>
-                                        <option value="HM">Half Marathon</option>
-                                        <option value="Marathon">Marathon</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-item">
-                                <label for="time" class="calculator-label">Time</label>
-                                <div class="calculator-selector calculator-time-selector">
-                                    <div class="unit-input-box">
-                                        <input type="text" class="time-input input">
-                                        <span class="time-unit">h</span>
-                                    </div>
-                                    <div class="unit-input-box">
-                                        <input type="text" class="time-input input">
-                                        <span class="time-unit">m</span>
-                                    </div>
-                                    <div class="unit-input-box">
-                                        <input type="text" class="time-input input">
-                                        <span class="time-unit">s</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="results">
+                        <div class="row">
+                            <label for="distance" class="calculator-label">Distance</label>
                             <div class="calculator-selector">
-                                <button class="button">Metric</button>
-                                <button class="button">Imperial</button>
+                                <select name="Distance" class="select input">
+                                    <option value="5km">5k</option>
+                                    <option value="10k">10k</option>
+                                    <option value="HM">Half Marathon</option>
+                                    <option value="Marathon">Marathon</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="time" class="calculator-label">Time</label>
+                            <div class="calculator-selector">
+                                <div class="unit-input-box">
+                                    <input type="text" class="time-input input">
+                                    <span class="time-unit">h</span>
+                                </div>
+                                <div class="unit-input-box">
+                                    <input type="text" class="time-input input">
+                                    <span class="time-unit">m</span>
+                                </div>
+                                <div class="unit-input-box">
+                                    <input type="text" class="time-input input">
+                                    <span class="time-unit">s</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="results">
+                            <div class="row">
+                                <label for="results" class="calculator-label">Results</label>
+                                <div class="units-selector">
+                                    <button class="units-button units-selected">Metric</button>
+                                    <button class="units-button">Imperial</button>
+                                </div>
                             </div>
                             <table>
                                 <thead>

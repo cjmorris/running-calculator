@@ -106,7 +106,7 @@ html, body {
     font-size: 1.2em;
 }
 
-.form-item {
+.row {
     padding: 2px 0px;
     display: flex;
 }
@@ -123,6 +123,10 @@ html, body {
     justify-content: space-between;
 }
 
+.units-selector {
+    width: 65%;
+    margin-left: auto;
+}
 
 .unit-input-box {
     width: 30%;
@@ -152,18 +156,40 @@ html, body {
 }
 
 .results {
-    max-width: 200px;
+    padding: 20px 0px;
 }
 
-form {
-    margin-bottom: 20px;
+.units-button {
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: bold;
+    border: none;
+    float: right;
+}
+
+.units-selected {
+    border-bottom: 1px black solid;
 }
 
 table {
     border-spacing: 0;
+    width: 100%;
 }
 
 thead {
     text-align: left;
     background-color: #b6b9bb;
+}
+
+tr th:not(:first-child),td:not(:first-child) {
+    text-align: right;
+}
+
+tr {
+    height: 30px;
+    padding: 5px;
+}
+
+tr:last-child td,th {
+    border-bottom: 2px black solid;
 }
