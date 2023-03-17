@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
+:root {
+    --main-bg-color: #0f141a;
+    --header-color: #1b202b;
+    --light-text-color: #c7ccce;
+    --gray-header-color: #b6b9bb;
+    --darkish-gray-color: #8a8c8d;
+    --dark-gray-color: #424444;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -7,13 +16,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #0f141a;
-    color: #c7ccce;
+    background-color: var(--main-bg-color);
+    color: var(--light-text-color);
     font-family: Helvetica;
 }
 
 .header{
-    background-color: #1b202b;
+    background-color: var(--header-color);
     font-family: "Playfair Display";
 }
 
@@ -44,7 +53,7 @@ html, body {
 
 .nav a {
     text-decoration: none;
-    color: #c7ccce;
+    color: var(--light-text-color);
     height: 100%;
     display: flex;
     align-items: center;
@@ -52,7 +61,7 @@ html, body {
 }
 
 .nav a:hover {
-    border-top: 2px solid #c7ccce;
+    border-top: 2px solid var(--light-text-color);
 }
 
 .site-logo {
@@ -85,7 +94,7 @@ html, body {
 
 .calculator {
     display: inline-block;
-    background-color: #c7ccce;
+    background-color: var(--light-text-color);
     width: clamp(300px, 65%, 500px);
     height: 400px;
     margin: 5px;
@@ -97,7 +106,7 @@ html, body {
     text-align: center;
     margin: 0px;
     padding: 15px 0px;
-    background-color: #b6b9bb;
+    background-color: var(--gray-header-color);
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -153,6 +162,7 @@ html, body {
 .time-unit {
     display: inline-block;
     width: 15%;
+    color: var(--dark-gray-color);
 }
 
 .results {
@@ -165,10 +175,11 @@ html, body {
     font-weight: bold;
     border: none;
     float: right;
+    color: var(--dark-gray-color)
 }
 
 .units-selected {
-    border-bottom: 1px black solid;
+    border-bottom: 1px var(--dark-gray-color) solid;
 }
 
 table {
@@ -178,7 +189,7 @@ table {
 
 thead {
     text-align: left;
-    background-color: #b6b9bb;
+    background-color: var(--gray-header-color);
 }
 
 tr th:not(:first-child),td:not(:first-child) {
@@ -191,5 +202,5 @@ tr {
 }
 
 tr:last-child td,th {
-    border-bottom: 2px black solid;
+    border-bottom: 2px var(--darkish-gray-color) solid;
 }
