@@ -178,6 +178,11 @@ html, body {
     color: var(--dark-gray-color)
 }
 
+.units-button:hover {
+    cursor: pointer;
+    border-bottom: 1px var(--dark-gray-color) solid;
+}
+
 .units-selected {
     border-bottom: 1px var(--dark-gray-color) solid;
 }
