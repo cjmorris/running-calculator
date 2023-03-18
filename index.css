@@ -21,6 +21,29 @@ html, body {
     font-family: Helvetica;
 }
 
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+thead {
+    text-align: left;
+    background-color: var(--gray-header-color);
+}
+
+tr th:not(:first-child),td:not(:first-child) {
+    text-align: right;
+}
+
+tr {
+    height: 30px;
+    padding: 5px;
+}
+
+tr:last-child td,th {
+    border-bottom: 2px var(--darkish-gray-color) solid;
+}
+
 .header{
     background-color: var(--header-color);
     font-family: "Playfair Display";
@@ -123,6 +146,7 @@ html, body {
 .calculator-label {
     display: inline-block;
     width: 120px;
+    height: 28px;
 }
 
 .calculator-selector {
@@ -187,25 +211,6 @@ html, body {
     border-bottom: 1px var(--dark-gray-color) solid;
 }
 
-table {
-    border-spacing: 0;
-    width: 100%;
-}
-
-thead {
-    text-align: left;
-    background-color: var(--gray-header-color);
-}
-
-tr th:not(:first-child),td:not(:first-child) {
-    text-align: right;
-}
-
-tr {
-    height: 30px;
-    padding: 5px;
-}
-
-tr:last-child td,th {
-    border-bottom: 2px var(--darkish-gray-color) solid;
+.centered-table tr td, .centered-table tr th {
+    text-align: center;
 }
