@@ -12,7 +12,7 @@
     <body>
         <header class="header">
             <div class="main-header">
-                <img class="site-logo" src="images/logo.png">
+                <img class="site-logo" id="site-logo" src="images/logo.png">
                 <nav class="nav">
                     <ul>
                         <li><a target="_self" href="index.html">Home</a></li>
@@ -103,7 +103,7 @@
                         <div class="row">
                             <label for="method" class="calculator-label">Method</label>
                             <div class="calculator-selector">
-                                <select name="Method" class="select input">
+                                <select name="Method" id="hr-method" class="select input" >
                                     <option value="lthr">Lactate Threshold HR</option>
                                     <option value="mhr">Max HR</option>
                                 </select>
@@ -112,7 +112,7 @@
                         <div class="row">
                             <label for="bpm" class="calculator-label">BPM</label>
                             <div class="calculator-selector">
-                                <input type="text" class="input bpm-input">
+                                <input type="number" class="input bpm-input" id="bpm-input" value="156">
                             </div>
                         </div>
                         <div class="results">
@@ -123,40 +123,40 @@
                                 <thead>
                                     <tr>
                                         <th>Zone</th>
-                                        <th>% Max HR</th>
+                                        <th id="range-header">% LTHR</th>
                                         <th colspan="2">Range (BPM)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>60 - 70</td>
-                                        <td>130</td>
-                                        <td>140</td>
+                                        <td id="z1-range">72 - 81</td>
+                                        <td id="z1-low">112</td>
+                                        <td id="z1-high">126</td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>70 - 80</td>
-                                        <td>140</td>
-                                        <td>150</td>
+                                        <td id="z2-range">81 - 89</td>
+                                        <td id="z2-low">126</td>
+                                        <td id="z2-high">139</td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>80 - 90</td>
-                                        <td>150</td>
-                                        <td>160</td>
+                                        <td id="z3-range">96 - 100</td>
+                                        <td id="z3-low">150</td>
+                                        <td id="z3-high">156</td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td>90 - 95</td>
-                                        <td>160</td>
-                                        <td>170</td>
+                                        <td id="z4-range">102 - 105</td>
+                                        <td id="z4-low">159</td>
+                                        <td id="z4-high">164</td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td>95 - 100</td>
-                                        <td>170</td>
-                                        <td>180</td>
+                                        <td id="z5-range">106 - 112</td>
+                                        <td id="z5-low">165</td>
+                                        <td id="z5-high">175</td>
                                     </tr>
                                 </tbody>
                             </table>
