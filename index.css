@@ -121,8 +121,9 @@ tr:last-child td,th {
     width: clamp(300px, 65%, 500px);
     height: 400px;
     margin: 5px;
-    border: 5px red solid;
+    border: 5px var(--darkish-gray-color) solid;
     border-radius: 10px;
+    min-width: 300px;
 }
 
 .calculator-title {
