@@ -2,12 +2,25 @@ const siteLogo = document.getElementById('site-logo');
 siteLogo.addEventListener('click', navigateHome);
 
 const heartRateMethod = document.getElementById('hr-method');
-heartRateMethod.addEventListener('change', updateHRCalculator)
+heartRateMethod.addEventListener('change', updateHRCalculator);
 
 const bpmInput = document.getElementById('bpm-input');
-bpmInput.addEventListener('change', updateHRCalculator)
+bpmInput.addEventListener('change', updateHRCalculator);
 
-updateHRCalculator()
+const distanceInput = document.getElementById('distance-input');
+distanceInput.addEventListener('change', updatePaceCalculator);
+
+const hourInput = document.getElementById('hour-input');
+hourInput.addEventListener('change', updatePaceCalculator);
+
+const minuteInput = document.getElementById('minute-input');
+minuteInput.addEventListener('change', updatePaceCalculator);
+
+const secondInput = document.getElementById('second-input');
+secondInput.addEventListener('change', updatePaceCalculator);
+
+updatePaceCalculator();
+updateHRCalculator();
 
 function navigateHome(){
     location.href = 'index.html';
@@ -68,15 +81,43 @@ function updateHRCalculator(){
         zone4Range.textContent = maxHRPercentages[6] + ' - ' + maxHRPercentages[7];
         zone5Range.textContent = maxHRPercentages[8] + ' - ' + maxHRPercentages[9];
 
-        zone1Low.textContent = Math.round((maxHRPercentages[0] * bpmValue)/100)
-        zone1High.textContent = Math.round((maxHRPercentages[1] * bpmValue)/100)
-        zone2Low.textContent = Math.round((maxHRPercentages[2] * bpmValue)/100)
-        zone2High.textContent = Math.round((maxHRPercentages[3] * bpmValue)/100)
-        zone3Low.textContent = Math.round((maxHRPercentages[4] * bpmValue)/100)
-        zone3High.textContent = Math.round((maxHRPercentages[5] * bpmValue)/100)
-        zone4Low.textContent = Math.round((maxHRPercentages[6] * bpmValue)/100)
-        zone4High.textContent = Math.round((maxHRPercentages[7] * bpmValue)/100)
-        zone5Low.textContent = Math.round((maxHRPercentages[8] * bpmValue)/100)
-        zone5High.textContent = Math.round((maxHRPercentages[9] * bpmValue)/100)
+        zone1Low.textContent = Math.round((maxHRPercentages[0] * bpmValue)/100);
+        zone1High.textContent = Math.round((maxHRPercentages[1] * bpmValue)/100);
+        zone2Low.textContent = Math.round((maxHRPercentages[2] * bpmValue)/100);
+        zone2High.textContent = Math.round((maxHRPercentages[3] * bpmValue)/100);
+        zone3Low.textContent = Math.round((maxHRPercentages[4] * bpmValue)/100);
+        zone3High.textContent = Math.round((maxHRPercentages[5] * bpmValue)/100);
+        zone4Low.textContent = Math.round((maxHRPercentages[6] * bpmValue)/100);
+        zone4High.textContent = Math.round((maxHRPercentages[7] * bpmValue)/100);
+        zone5Low.textContent = Math.round((maxHRPercentages[8] * bpmValue)/100);
+        zone5High.textContent = Math.round((maxHRPercentages[9] * bpmValue)/100);
+    }
+}
+
+function updatePaceCalculator(){
+    const distanceInputValue = distanceInput.value;
+    const hourValue = hourInput.value;
+    const minuteValue = minuteInput.value;
+    const secondValue = secondInput.value;
+
+}
+
+function parseToHHMMSS(seconds){
+    let secondValue = Number(seconds) % 60;
+    const minuteTotal = (Number(seconds)-secondValue) / 60;
+    let minuteValue = minuteTotal % 60;
+    const hourValue = (minuteTotal - minuteValue) /60;
+
+    if(secondValue.toString().length === 1){
+        secondValue = '0' + secondValue;
+    }
+
+    if (hourValue > 0){
+        if(minuteValue.toString().length === 1){
+            minuteValue = '0' + minuteValue;
+        }
+        return `${hourValue}:${minuteValue}:${secondValue}`;
+    }else {
+        return `${minuteValue}:${secondValue}`;
     }
 }

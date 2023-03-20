@@ -172,7 +172,7 @@ tr:last-child td,th {
     border-radius: 5px;
     border: 1px black solid;
     font-size: 0.8em;  
-    padding: 5px; 
+    padding: 5px 0px; 
     text-align: center; 
 }
 

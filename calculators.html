@@ -30,7 +30,7 @@
                         <div class="row">
                             <label for="distance" class="calculator-label">Distance</label>
                             <div class="calculator-selector">
-                                <select name="Distance" class="select input">
+                                <select name="Distance" id="distance-input" class="select input">
                                     <option value="5km">5k</option>
                                     <option value="10k">10k</option>
                                     <option value="HM">Half Marathon</option>
@@ -42,15 +42,15 @@
                             <label for="time" class="calculator-label">Time</label>
                             <div class="calculator-selector">
                                 <div class="unit-input-box">
-                                    <input type="text" class="time-input input">
+                                    <input type="number" id="hour-input" value="0" class="time-input input">
                                     <span class="time-unit">h</span>
                                 </div>
                                 <div class="unit-input-box">
-                                    <input type="text" class="time-input input">
+                                    <input type="number" id="minute-input" value="25" class="time-input input">
                                     <span class="time-unit">m</span>
                                 </div>
                                 <div class="unit-input-box">
-                                    <input type="text" class="time-input input">
+                                    <input type="number" id="second-input" value="0" class="time-input input">
                                     <span class="time-unit">s</span>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                                     <tr>
                                         <th>Distance</th>
                                         <th>Time</th>
-                                        <th>Pace</th>
+                                        <th>Pace (/km)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,8 +79,8 @@
                                     </tr>
                                     <tr>
                                         <td>10km</td>
-                                        <td>52:00</td>
-                                        <td>5:12</td>
+                                        <td>52:07</td>
+                                        <td>5:13</td>
                                     </tr>
                                     <tr>
                                         <td>Half Marathon</td>
@@ -89,7 +89,7 @@
                                     </tr>
                                     <tr>
                                         <td>Marathon</td>
-                                        <td>4:30:00</td>
+                                        <td>4:29:26</td>
                                         <td>6:23</td>
                                     </tr>
                                 </tbody>
