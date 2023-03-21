@@ -95,14 +95,38 @@ function updateHRCalculator(){
 }
 
 function updatePaceCalculator(){
-    const distanceInputValue = distanceInput.value;
-    const hourValue = hourInput.value;
-    const minuteValue = minuteInput.value;
-    const secondValue = secondInput.value;
+    const distanceWeights = [1, 2.085, 4.6, 10.78];
 
+    const distanceInputValue = distanceInput.value;
+    const hourValue = Number(hourInput.value);
+    const minuteValue = Number(minuteInput.value);
+    const secondValue = Number(secondInput.value);
+
+    totalSeconds = secondValue + minuteValue * 60 + hourValue * 60 ** 2
+    
+    let weightIndex = 0;
+    if (distanceInputValue === '5km'){
+        weightIndex = 0
+    } else if (distanceInputValue === '10km'){
+        weightIndex = 1
+    } else if (distanceInputValue === 'HM'){
+        weightIndex = 2
+    } else if (distanceInputValue === 'M'){
+        weightIndex = 3
+    }
+
+    const time5K = document.getElementById('5k-time');
+    const time10K = document.getElementById('10k-time');
+    const timeHM = document.getElementById('hm-time');
+    const timeM = document.getElementById('m-time');
+
+    time5K.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[0]/distanceWeights[weightIndex]).toFixed());
+    time10K.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[1]/distanceWeights[weightIndex]).toFixed());
+    timeHM.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[2]/distanceWeights[weightIndex]).toFixed());
+    timeM.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[3]/distanceWeights[weightIndex]).toFixed());
 }
 
-function parseToHHMMSS(seconds){
+function parseSecondsToHHMMSS(seconds){
     let secondValue = Number(seconds) % 60;
     const minuteTotal = (Number(seconds)-secondValue) / 60;
     let minuteValue = minuteTotal % 60;
