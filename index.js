@@ -115,15 +115,31 @@ function updatePaceCalculator(){
         weightIndex = 3
     }
 
+
     const time5K = document.getElementById('5k-time');
     const time10K = document.getElementById('10k-time');
     const timeHM = document.getElementById('hm-time');
     const timeM = document.getElementById('m-time');
 
-    time5K.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[0]/distanceWeights[weightIndex]).toFixed());
-    time10K.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[1]/distanceWeights[weightIndex]).toFixed());
-    timeHM.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[2]/distanceWeights[weightIndex]).toFixed());
-    timeM.textContent = parseSecondsToHHMMSS((totalSeconds * distanceWeights[3]/distanceWeights[weightIndex]).toFixed());
+    const totalTime5k = (totalSeconds * distanceWeights[0]/distanceWeights[weightIndex]);
+    const totalTime10k = (totalSeconds * distanceWeights[1]/distanceWeights[weightIndex]);
+    const totalTimeHM = (totalSeconds * distanceWeights[2]/distanceWeights[weightIndex]);
+    const totalTimeM = (totalSeconds * distanceWeights[3]/distanceWeights[weightIndex]);
+
+    time5K.textContent = parseSecondsToHHMMSS(totalTime5k.toFixed(0));
+    time10K.textContent = parseSecondsToHHMMSS(totalTime10k.toFixed(0));
+    timeHM.textContent = parseSecondsToHHMMSS(totalTimeHM.toFixed(0));
+    timeM.textContent = parseSecondsToHHMMSS(totalTimeM.toFixed(0));
+
+    const pace5K = document.getElementById('5k-pace');
+    const pace10K = document.getElementById('10k-pace');
+    const paceHM = document.getElementById('hm-pace');
+    const paceM = document.getElementById('m-pace');
+
+    pace5K.textContent = parseSecondsToHHMMSS((totalTime5k/5).toFixed(0));
+    pace10K.textContent = parseSecondsToHHMMSS((totalTime10k/10).toFixed(0));
+    paceHM.textContent = parseSecondsToHHMMSS((totalTimeHM/21.0975).toFixed(0));
+    paceM.textContent = parseSecondsToHHMMSS((totalTimeM/42.195).toFixed(0));
 }
 
 function parseSecondsToHHMMSS(seconds){
