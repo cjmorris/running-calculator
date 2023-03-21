@@ -59,8 +59,8 @@
                             <div class="row">
                                 <label for="results" class="calculator-label">Results</label>
                                 <div class="units-selector">
-                                    <button class="units-button units-selected">Metric</button>
-                                    <button class="units-button">Imperial</button>
+                                    <button id="metric-units-button" class="units-button units-selected">Metric</button>
+                                    <button id="imperial-units-button" class="units-button">Imperial</button>
                                 </div>
                             </div>
                             <table>
@@ -68,7 +68,7 @@
                                     <tr>
                                         <th>Distance</th>
                                         <th>Time</th>
-                                        <th>Pace (/km)</th>
+                                        <th id="results-pace-header">Pace (/km)</th>
                                     </tr>
                                 </thead>
                                 <tbody>

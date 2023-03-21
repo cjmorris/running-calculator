@@ -1,3 +1,5 @@
+let selectedUnit = 'metric';
+
 const siteLogo = document.getElementById('site-logo');
 siteLogo.addEventListener('click', navigateHome);
 
@@ -18,6 +20,12 @@ minuteInput.addEventListener('change', updatePaceCalculator);
 
 const secondInput = document.getElementById('second-input');
 secondInput.addEventListener('change', updatePaceCalculator);
+
+const metricButton = document.getElementById('metric-units-button');
+metricButton.addEventListener('click', e => changeUnit(e));
+
+const imperialButton = document.getElementById('imperial-units-button');
+imperialButton.addEventListener('click', e => changeUnit(e));
 
 updatePaceCalculator();
 updateHRCalculator();
@@ -96,6 +104,8 @@ function updateHRCalculator(){
 
 function updatePaceCalculator(){
     const distanceWeights = [1, 2.085, 4.6, 10.78];
+    const metricDistances = [5, 10, 21.0975, 42.195];
+    const imperialDistances = [3.10686, 6.21371, 13.1094, 26.219];
 
     const distanceInputValue = distanceInput.value;
     const hourValue = Number(hourInput.value);
@@ -136,10 +146,17 @@ function updatePaceCalculator(){
     const paceHM = document.getElementById('hm-pace');
     const paceM = document.getElementById('m-pace');
 
-    pace5K.textContent = parseSecondsToHHMMSS((totalTime5k/5).toFixed(0));
-    pace10K.textContent = parseSecondsToHHMMSS((totalTime10k/10).toFixed(0));
-    paceHM.textContent = parseSecondsToHHMMSS((totalTimeHM/21.0975).toFixed(0));
-    paceM.textContent = parseSecondsToHHMMSS((totalTimeM/42.195).toFixed(0));
+    let raceDistances;
+    if (selectedUnit === 'metric'){
+        raceDistances = metricDistances;
+    }else if(selectedUnit === 'imperial'){
+        raceDistances = imperialDistances;
+    }
+
+    pace5K.textContent = parseSecondsToHHMMSS((totalTime5k/raceDistances[0]).toFixed(0));
+    pace10K.textContent = parseSecondsToHHMMSS((totalTime10k/raceDistances[1]).toFixed(0));
+    paceHM.textContent = parseSecondsToHHMMSS((totalTimeHM/raceDistances[2]).toFixed(0));
+    paceM.textContent = parseSecondsToHHMMSS((totalTimeM/raceDistances[3]).toFixed(0));
 }
 
 function parseSecondsToHHMMSS(seconds){
@@ -160,4 +177,23 @@ function parseSecondsToHHMMSS(seconds){
     }else {
         return `${minuteValue}:${secondValue}`;
     }
+}
+
+function changeUnit(event){
+    const paceHeader = document.getElementById('results-pace-header')
+    
+    if(event.target.id === 'metric-units-button'){
+        selectedUnit = 'metric';
+        imperialButton.classList.remove('units-selected');
+        metricButton.classList.add('units-selected');
+
+        paceHeader.textContent = 'Pace (/km)';
+    }else if (event.target.id === 'imperial-units-button'){
+        selectedUnit = 'imperial';
+        metricButton.classList.remove('units-selected');
+        imperialButton.classList.add('units-selected');
+
+        paceHeader.textContent = 'Pace (/mi)';
+    }
+    updatePaceCalculator();
 }
