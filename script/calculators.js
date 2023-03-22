@@ -1,8 +1,5 @@
 let selectedUnit = 'metric';
 
-const siteLogo = document.getElementById('site-logo');
-siteLogo.addEventListener('click', navigateHome);
-
 const heartRateMethod = document.getElementById('hr-method');
 heartRateMethod.addEventListener('change', updateHRCalculator);
 
@@ -29,10 +26,6 @@ imperialButton.addEventListener('click', e => changeUnit(e));
 
 updatePaceCalculator();
 updateHRCalculator();
-
-function navigateHome(){
-    location.href = 'index.html';
-}
 
 function updateHRCalculator(){
     const heartRateMethodValue = heartRateMethod.value;
