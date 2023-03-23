@@ -180,7 +180,7 @@ tr:last-child td,th {
 }
 
 .select, .bpm-input {
-    width: 97%;
+    width: 100%;
 }
 
 .time-input {   
@@ -225,11 +225,25 @@ tr:last-child td,th {
     margin-top: 5%;
 }
 
-.training-plan-input-container {
-    height: 100px;
+.tp-input-container {
+    min-height: 100px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2em;
+    padding: 10px 15px;
 }
 
-.training-plan-table-container {
+.tp-table-container {
     margin-top: 20px;
     height: 200px;
+}
+
+.tp-input {
+    width: 25%;
+}
+
+.tp-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
 }
