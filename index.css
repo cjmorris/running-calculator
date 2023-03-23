@@ -115,14 +115,17 @@ tr:last-child td,th {
     flex-wrap: wrap;
 }
 
+.content-container {
+    border: 5px var(--darkish-gray-color) solid;
+    background-color: var(--light-text-color);
+    border-radius: 10px;
+}
+
 .calculator {
     display: inline-block;
-    background-color: var(--light-text-color);
     width: clamp(300px, 65%, 500px);
     height: 400px;
     margin: 5px;
-    border: 5px var(--darkish-gray-color) solid;
-    border-radius: 10px;
     min-width: 300px;
 }
 
@@ -215,4 +218,18 @@ tr:last-child td,th {
 
 .centered-table tr td, .centered-table tr th {
     text-align: center;
+}
+
+.training-plan-container{
+    color: black;
+    margin-top: 5%;
+}
+
+.training-plan-input-container {
+    height: 100px;
+}
+
+.training-plan-table-container {
+    margin-top: 20px;
+    height: 200px;
 }
