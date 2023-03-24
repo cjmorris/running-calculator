@@ -44,6 +44,10 @@ tr:last-child td,th {
     border-bottom: 2px var(--darkish-gray-color) solid;
 }
 
+tbody tr:nth-child(2n){
+    background-color: var(--gray-header-color);
+}
+
 .header{
     background-color: var(--header-color);
     font-family: "Playfair Display";
