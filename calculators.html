@@ -43,15 +43,15 @@
                             <label for="time" class="calculator-label">Time</label>
                             <div class="calculator-selector">
                                 <div class="unit-input-box">
-                                    <input type="number" id="hour-input" value="0" class="time-input input">
+                                    <input type="number" id="hour-input" value="0" min="0" class="time-input input">
                                     <span class="time-unit">h</span>
                                 </div>
                                 <div class="unit-input-box">
-                                    <input type="number" id="minute-input" value="25" class="time-input input">
+                                    <input type="number" id="minute-input" value="25" min="0" class="time-input input">
                                     <span class="time-unit">m</span>
                                 </div>
                                 <div class="unit-input-box">
-                                    <input type="number" id="second-input" value="0" class="time-input input">
+                                    <input type="number" id="second-input" value="0" min="0" class="time-input input">
                                     <span class="time-unit">s</span>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                         <div class="row">
                             <label for="bpm" class="calculator-label">BPM</label>
                             <div class="calculator-selector">
-                                <input type="number" class="input bpm-input" id="bpm-input" value="156">
+                                <input type="number" class="input bpm-input" id="bpm-input" value="156" min="0">
                             </div>
                         </div>
                         <div class="results">
