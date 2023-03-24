@@ -198,7 +198,7 @@ tr:last-child td,th {
     padding: 20px 0px;
 }
 
-.units-button {
+.button {
     margin: 5px;
     background-color: rgba(0, 0, 0, 0);
     font-weight: bold;
@@ -207,7 +207,7 @@ tr:last-child td,th {
     color: var(--dark-gray-color)
 }
 
-.units-button:hover {
+.button:hover {
     cursor: pointer;
     border-bottom: 1px var(--dark-gray-color) solid;
 }
@@ -235,7 +235,7 @@ tr:last-child td,th {
 
 .tp-table-container {
     margin-top: 20px;
-    height: 200px;
+    padding: 10px 15px; 
 }
 
 .tp-input {
@@ -246,4 +246,22 @@ tr:last-child td,th {
     display: block;
     text-align: center;
     margin-bottom: 5px;
+}
+
+.training-plan-table tr td:first-child {
+    font-weight: bold;
+}
+
+.tp-results-header {
+    font-size: 1.2em;
+    justify-content: right;
+}
+
+.tp-download-button {
+    
+}
+
+.tp-results-header-label{
+    display: inline-block;
+    flex-grow: 1;
 }
