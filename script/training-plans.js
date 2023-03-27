@@ -1,4 +1,6 @@
-import { novice5k } from "./plans.js";
+import { novice5k, novice10k, noviceHM, noviceMarathon, intermediate5k,
+ intermediate10k, intermediateHM, intermediateMarathon, advanced5k,
+ advanced10k, advancedHM, advancedMarathon  } from "./plans.js";
 
 const raceDistanceInput = document.querySelector('#race-distance-input');
 raceDistanceInput.addEventListener('change',updateTrainingPlan)
@@ -19,7 +21,6 @@ function updateTrainingPlan(){
         trainingTableDiv.innerHTML = createTrainingPlan(raceDistance,experienceLevel,weeksToTrain);
         trainingTableDiv.removeAttribute('hidden');
     }
-    console.log(novice5k.split('\n'));
 }
 
 function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
@@ -29,13 +30,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('5km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain,'Novice 5k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(intermediate5k,weeksToTrain,'Intermediate 5k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(advanced5k,weeksToTrain,'Advanced 5k Training Plan');
                     break;
                 default:
                     break;
@@ -44,13 +45,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('10km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(novice10k,weeksToTrain,'Novice 10k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(intermediate10k,weeksToTrain,'Intermediate 10k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(advanced10k,weeksToTrain,'Advanced 10k Training Plan');
                     break;
                 default:
                     break;
@@ -59,13 +60,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('HM'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(noviceHM,weeksToTrain,'Novice Half Marathon Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(intermediateHM,weeksToTrain,'Intermediate Half Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(advancedHM,weeksToTrain,'Advanced Half Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -74,13 +75,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('M'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(noviceMarathon,weeksToTrain,'Novice Marathon Training Plan');
                     break; 
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(intermediateMarathon,weeksToTrain,'Intermediate Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain);
+                    trainingPlanContents = parseTrainingPlan(advancedMarathon,weeksToTrain,'Advanced Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -92,65 +93,47 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
     return trainingPlanContents;
 }
 
-function parseTrainingPlan(trainingPlan,weeksToTrain){
-    return `                    <div class="row tp-results-header">
-    <label for="results" class="tp-label tp-results-header-label">Novice 4-Week 5k Training Plan</label>
-    <button class="button tp-download-button">Download as pdf</button>
-</div>
-<table class="centered-table training-plan-table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
-            <th>Sunday</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Week 1</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins<br>Z2: 20 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-        </tr>
-        <tr>
-            <td>Week 2</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins<br>Z2: 20 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-        </tr>
-        <tr>
-            <td>Week 3</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins<br>Z2: 20 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-        </tr>
-        <tr>
-            <td>Week 4</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins<br>Z2: 20 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-            <td>Z1: 40 mins</td>
-        </tr>
-    </tbody>
-</table>`;
+function parseTrainingPlan(trainingPlan,weeksToTrain,heading){
+    let trainingPlanHTML = `
+    <div class="row tp-results-header">
+        <label for="results" class="tp-label tp-results-header-label">${heading} (${weeksToTrain} Weeks)</label>
+        <button class="button tp-download-button">Download as pdf</button>
+    </div>
+    <table class="centered-table training-plan-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    const trainingPlanWeekly = trainingPlan.split(';\n');
+    for(let i = 0; i < trainingPlanWeekly.length; i++){
+        trainingPlanHTML += `
+            <tr> 
+                <td>Week ${i+1}</td>
+        `;
+       let trainingPlanDaily = trainingPlanWeekly[i].split(',');
+       console.log(trainingPlanDaily)
+        for(const trainingDay of trainingPlanDaily){
+            trainingPlanHTML += `<td>${trainingDay}</td>`;
+        }
+        trainingPlanHTML += '</tr>';
+    }
+
+    console.log(trainingPlanWeekly);
+    
+    trainingPlanHTML += `
+        </tbody>
+        </table>
+    `;
+    return trainingPlanHTML;
 }
