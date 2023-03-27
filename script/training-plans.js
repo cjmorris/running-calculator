@@ -1,12 +1,4 @@
-const novice5k = `Z,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z,Z,Z,Z,Z,Z1: 40 mins,REST;
-Z,Z,Z,Z,Z,Z1: 20 mins,RACE DAY;`
+import { novice5k } from "./plans.js";
 
 const raceDistanceInput = document.querySelector('#race-distance-input');
 raceDistanceInput.addEventListener('change',updateTrainingPlan)
@@ -27,7 +19,7 @@ function updateTrainingPlan(){
         trainingTableDiv.innerHTML = createTrainingPlan(raceDistance,experienceLevel,weeksToTrain);
         trainingTableDiv.removeAttribute('hidden');
     }
-    console.log(noivce5k.split('\n'));
+    console.log(novice5k.split('\n'));
 }
 
 function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
