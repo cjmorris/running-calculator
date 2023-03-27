@@ -1,6 +1,7 @@
 import { novice5k, novice10k, noviceHM, noviceMarathon, intermediate5k,
  intermediate10k, intermediateHM, intermediateMarathon, advanced5k,
- advanced10k, advancedHM, advancedMarathon  } from "./plans.js";
+ advanced10k, advancedHM, advancedMarathon,
+ weeksToInclude5k, weeksToInclude10k, weeksToIncludeMarathons  } from "./plans.js";
 
 const raceDistanceInput = document.querySelector('#race-distance-input');
 raceDistanceInput.addEventListener('change',updateTrainingPlan)
@@ -70,13 +71,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('5km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain,'Novice 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain,weeksToInclude5k,'Novice 5k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediate5k,weeksToTrain,'Intermediate 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(intermediate5k,weeksToTrain,weeksToInclude5k,'Intermediate 5k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advanced5k,weeksToTrain,'Advanced 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(advanced5k,weeksToTrain,weeksToInclude5k,'Advanced 5k Training Plan');
                     break;
                 default:
                     break;
@@ -85,13 +86,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('10km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice10k,weeksToTrain,'Novice 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(novice10k,weeksToTrain,weeksToInclude10k,'Novice 10k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediate10k,weeksToTrain,'Intermediate 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(intermediate10k,weeksToTrain,weeksToInclude10k,'Intermediate 10k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advanced10k,weeksToTrain,'Advanced 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(advanced10k,weeksToTrain,weeksToInclude10k,'Advanced 10k Training Plan');
                     break;
                 default:
                     break;
@@ -100,13 +101,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('HM'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(noviceHM,weeksToTrain,'Novice Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(noviceHM,weeksToTrain,weeksToIncludeMarathons,'Novice Half Marathon Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediateHM,weeksToTrain,'Intermediate Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(intermediateHM,weeksToTrain,weeksToIncludeMarathons,'Intermediate Half Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advancedHM,weeksToTrain,'Advanced Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(advancedHM,weeksToTrain,weeksToIncludeMarathons,'Advanced Half Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -115,13 +116,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('M'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(noviceMarathon,weeksToTrain,'Novice Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(noviceMarathon,weeksToTrain,weeksToIncludeMarathons,'Novice Marathon Training Plan');
                     break; 
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediateMarathon,weeksToTrain,'Intermediate Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(intermediateMarathon,weeksToTrain,weeksToIncludeMarathons,'Intermediate Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advancedMarathon,weeksToTrain,'Advanced Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(advancedMarathon,weeksToTrain,weeksToIncludeMarathons,'Advanced Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -133,7 +134,7 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
     return trainingPlanContents;
 }
 
-function parseTrainingPlan(trainingPlan,weeksToTrain,heading){
+function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
     let trainingPlanHTML = `
     <div class="row tp-results-header">
         <label for="results" class="tp-label tp-results-header-label">${heading} (${weeksToTrain} Weeks)</label>
@@ -155,21 +156,28 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,heading){
         <tbody>
     `;
 
+
     const trainingPlanWeekly = trainingPlan.split(';\n');
-    for(let i = 0; i < trainingPlanWeekly.length; i++){
+
+    let trainingPlanWeeksLimited = [];
+    for(let i = 0;i<weeksToTrain;i++){
+        trainingPlanWeeksLimited[weeksToInclude[i]-1] = trainingPlanWeekly[weeksToInclude[i]-1];
+    }
+    trainingPlanWeeksLimited = trainingPlanWeeksLimited.filter(n => n);
+
+    for(let i = 0; i < trainingPlanWeeksLimited.length; i++){
         trainingPlanHTML += `
             <tr> 
                 <td>Week ${i+1}</td>
         `;
-       let trainingPlanDaily = trainingPlanWeekly[i].split(',');
-       console.log(trainingPlanDaily)
+       let trainingPlanDaily = trainingPlanWeeksLimited[i].split(',');
+
         for(const trainingDay of trainingPlanDaily){
             trainingPlanHTML += `<td>${trainingDay}</td>`;
         }
         trainingPlanHTML += '</tr>';
     }
 
-    console.log(trainingPlanWeekly);
     
     trainingPlanHTML += `
         </tbody>
