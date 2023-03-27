@@ -11,15 +11,55 @@ experienceLevelInput.addEventListener('change',updateTrainingPlan)
 const weeksToTrainInput = document.querySelector('#wtt-input');
 weeksToTrainInput.addEventListener('change',updateTrainingPlan)
 
-function updateTrainingPlan(){
+function updateTrainingPlan(e){
     const raceDistance = raceDistanceInput.value;
     const experienceLevel = experienceLevelInput.value;
-    const weeksToTrain = weeksToTrainInput.value;
+    let weeksToTrain = weeksToTrainInput.value;
+
+    if(e.target.id === 'race-distance-input'){
+        weeksToTrain = '';
+        if (raceDistance === ''){
+            weeksToTrainInput.setAttribute('disabled','');
+            weeksToTrainInput.innerHTML = `                            
+                    <option value="">----------</option>
+                `;
+        }else{
+            if (raceDistance === '5km'){
+                weeksToTrainInput.innerHTML = `                            
+                    <option value="">----------</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8 (Recommended)</option>
+                    <option value="10">10</option>
+                `;
+
+            }else if (raceDistance === '10km'){
+                weeksToTrainInput.innerHTML = `                            
+                    <option value="">----------</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="10">10 (Recommended)</option>
+                    <option value="12">12</option>
+                `;
+            }else if (raceDistance === 'HM' || raceDistance === 'M'){
+                weeksToTrainInput.innerHTML = `                            
+                    <option value="">----------</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="16">16 (Recommended)</option>
+                    <option value="18">18</option>
+                `;
+            }
+            weeksToTrainInput.removeAttribute('disabled');
+        }
+    }
 
     const trainingTableDiv = document.querySelector('#tp-results');
     if (raceDistance !== '' && experienceLevel !== '' && weeksToTrain !== ''){
         trainingTableDiv.innerHTML = createTrainingPlan(raceDistance,experienceLevel,weeksToTrain);
         trainingTableDiv.removeAttribute('hidden');
+    }else {
+        trainingTableDiv.setAttribute('hidden','');
     }
 }
 
