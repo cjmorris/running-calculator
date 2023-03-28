@@ -2,16 +2,16 @@ export const weeksToInclude5k = [1,2,3,10,6,7,5,9,4,8];
 export const weeksToInclude10k = [1,2,3,6,10,12,7,11,5,9,4,8];
 export const weeksToIncludeMarathons = [1,2,3,6,10,12,13,18,14,15,16,17,7,11,5,9,4,8];
 
-export const novice5k = `novice5k,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z2,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z3,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z4,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z5,Z,Z,Z,Z,Z1: 30 mins,REST;
-Z6,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z7,Z,Z,Z,Z,Z1: 35 mins,REST;
-Z8,Z,Z,Z,Z,Z1: 40 mins,REST;
-Z9,Z,Z,Z,Z,Z1: 40 mins,REST;
-Z10,Z,Z,Z,Z,Z1: 20 mins,RACE DAY`;
+export const novice5k = `Z1: 5 mins<br>Z2: 10 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>3 x (Z4: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 10 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 10 mins<br>Z3: 5 mins,REST;
+Z1: 5 mins<br>Z2: 15 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>4 x (Z4: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 15 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 15 mins<br>Z3: 5 mins,REST;
+Z1: 5 mins<br>Z2: 20 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>5 x (Z4: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 20 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 15 mins<br>Z3: 10 mins,REST;
+Z1: 5 mins<br>Z2: 10 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>4 x (Z4: 2 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 10 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 10 mins<br>Z3: 5 mins,REST;
+Z1: 5 mins<br>Z2: 20 mins<br>Z1: 5 mins,Z1: 20 mins,Z1: 5 mins<br>Z2: 5 mins<br>8 x (Z5: 30 secs; Z1: 90 secs)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 20 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 15 mins<br>Z3: 10 mins,REST;
+Z1: 5 mins<br>Z2: 25 mins<br>Z1: 5 mins,Z1: 20 mins,Z1: 5 mins<br>Z2: 5 mins<br>10 x (Z5: 30 secs; Z1: 90 secs)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 25 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 20 mins<br>Z3: 10 mins,REST;
+Z1: 5 mins<br>Z2: 30 mins<br>Z1: 5 mins,Z1: 25 mins,Z1: 5 mins<br>Z2: 5 mins<br>6 x (Z5: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 25 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 20 mins<br>Z3: 12 mins,REST;
+Z1: 5 mins<br>Z2: 35 mins<br>Z1: 5 mins,Z1: 25 mins,Z1: 5 mins<br>Z2: 5 mins<br>8 x (Z5: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 30 mins<br>Z1: 5 mins,Z1: 5 mins<br>Z2: 25 mins<br>Z3: 12 mins,REST;
+Z1: 5 mins<br>Z2: 15 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>4 x (Z4: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 25 mins,Z1: 5 mins<br>Z2: 15 mins<br>Z3: 5 mins,REST;
+Z1: 5 mins<br>Z2: 10 mins<br>Z1: 5 mins,REST,Z1: 5 mins<br>Z2: 5 mins<br>3 x (Z4: 1 min; Z1: 2 mins)<br>Z1: 5 mins,REST,Z1: 15 mins,REST,RACE DAY`;
 
 export const intermediate5k = `intermediate5k,Z,Z,Z,Z,Z1: 30 mins,REST;
 Z,Z,Z,Z,Z,Z1: 35 mins,REST;
