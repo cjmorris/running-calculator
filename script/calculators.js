@@ -129,10 +129,10 @@ function updatePaceCalculator(){
     const totalTimeHM = (totalSeconds * distanceWeights[2]/distanceWeights[weightIndex]);
     const totalTimeM = (totalSeconds * distanceWeights[3]/distanceWeights[weightIndex]);
 
-    time5K.textContent = parseSecondsToHHMMSS(totalTime5k.toFixed(0));
-    time10K.textContent = parseSecondsToHHMMSS(totalTime10k.toFixed(0));
-    timeHM.textContent = parseSecondsToHHMMSS(totalTimeHM.toFixed(0));
-    timeM.textContent = parseSecondsToHHMMSS(totalTimeM.toFixed(0));
+    time5K.textContent = parseSecondsToHHMMSS(totalTime5k.toFixed(0)).timeFormatted;
+    time10K.textContent = parseSecondsToHHMMSS(totalTime10k.toFixed(0)).timeFormatted;
+    timeHM.textContent = parseSecondsToHHMMSS(totalTimeHM.toFixed(0)).timeFormatted;
+    timeM.textContent = parseSecondsToHHMMSS(totalTimeM.toFixed(0)).timeFormatted;
 
     const pace5K = document.getElementById('5k-pace');
     const pace10K = document.getElementById('10k-pace');
@@ -146,10 +146,10 @@ function updatePaceCalculator(){
         raceDistances = imperialDistances;
     }
 
-    pace5K.textContent = parseSecondsToHHMMSS((totalTime5k/raceDistances[0]).toFixed(0));
-    pace10K.textContent = parseSecondsToHHMMSS((totalTime10k/raceDistances[1]).toFixed(0));
-    paceHM.textContent = parseSecondsToHHMMSS((totalTimeHM/raceDistances[2]).toFixed(0));
-    paceM.textContent = parseSecondsToHHMMSS((totalTimeM/raceDistances[3]).toFixed(0));
+    pace5K.textContent = parseSecondsToHHMMSS((totalTime5k/raceDistances[0]).toFixed(0)).timeFormatted;
+    pace10K.textContent = parseSecondsToHHMMSS((totalTime10k/raceDistances[1]).toFixed(0)).timeFormatted;
+    paceHM.textContent = parseSecondsToHHMMSS((totalTimeHM/raceDistances[2]).toFixed(0)).timeFormatted;
+    paceM.textContent = parseSecondsToHHMMSS((totalTimeM/raceDistances[3]).toFixed(0)).timeFormatted;
 }
 
 function parseSecondsToHHMMSS(seconds){
@@ -162,13 +162,22 @@ function parseSecondsToHHMMSS(seconds){
         secondValue = '0' + secondValue;
     }
 
+    let timeString = '';
     if (hourValue > 0){
         if(minuteValue.toString().length === 1){
             minuteValue = '0' + minuteValue;
         }
-        return `${hourValue}:${minuteValue}:${secondValue}`;
+        timeString = `${hourValue}:${minuteValue}:${secondValue}`;
+
     }else {
-        return `${minuteValue}:${secondValue}`;
+        timeString = `${minuteValue}:${secondValue}`;
+    }
+    console.log(timeString)
+    return {
+        hours: hourValue,
+        minutes: minuteValue,
+        seconds: secondValue,
+        timeFormatted: timeString
     }
 }
 

@@ -262,10 +262,6 @@ tbody tr:nth-child(2n){
     justify-content: right;
 }
 
-.tp-download-button {
-    
-}
-
 .tp-results-header-label{
     display: inline-block;
     flex-grow: 1;

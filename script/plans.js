@@ -1,4 +1,4 @@
-export const weeksToInclude5k = [1,2,3,10,6,7,5,9,4,8];
+export const weeksToInclude5k = [2,6,8,10,3,7,4,9,1,5];
 export const weeksToInclude10k = [1,2,3,6,10,12,7,11,5,9,4,8];
 export const weeksToIncludeMarathons = [1,2,3,6,10,12,13,18,14,15,16,17,7,11,5,9,4,8];
 
