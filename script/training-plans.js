@@ -1,7 +1,4 @@
-import { novice5k, novice10k, noviceHM, noviceMarathon, intermediate5k,
- intermediate10k, intermediateHM, intermediateMarathon, advanced5k,
- advanced10k, advancedHM, advancedMarathon,
- weeksToInclude5k, weeksToInclude10k, weeksToIncludeMarathons  } from "./plans.js";
+import { plans, runTypes, weeksToInclude5k, weeksToInclude10k, weeksToIncludeMarathons  } from "./plans.js";
 
 const raceDistanceInput = document.querySelector('#race-distance-input');
 raceDistanceInput.addEventListener('change',updateTrainingPlan)
@@ -71,7 +68,7 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('5km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice5k,weeksToTrain,weeksToInclude5k,'Novice 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.novice5k,weeksToTrain,weeksToInclude5k,'Novice 5k Training Plan');
                     break;
                 case('intermediate'):
                     trainingPlanContents = parseTrainingPlan(intermediate5k,weeksToTrain,weeksToInclude5k,'Intermediate 5k Training Plan');
@@ -156,12 +153,9 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
         <tbody>
     `;
 
-
-    const trainingPlanWeekly = trainingPlan.split(';\n');
-
     let trainingPlanWeeksLimited = [];
     for(let i = 0;i<weeksToTrain;i++){
-        trainingPlanWeeksLimited[weeksToInclude[i]-1] = trainingPlanWeekly[weeksToInclude[i]-1];
+        trainingPlanWeeksLimited[weeksToInclude[i]-1] = trainingPlan[weeksToInclude[i]-1];
     }
     trainingPlanWeeksLimited = trainingPlanWeeksLimited.filter(n => n);
 
@@ -170,10 +164,9 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
             <tr> 
                 <td>Week ${i+1}</td>
         `;
-       let trainingPlanDaily = trainingPlanWeeksLimited[i].split(',');
 
-        for(const trainingDay of trainingPlanDaily){
-            trainingPlanHTML += `<td>${trainingDay}</td>`;
+        for(const trainingCode of trainingPlanWeeksLimited[i]){
+            trainingPlanHTML += `<td>${getRunFromCode(trainingCode)}</td>`;
         }
         trainingPlanHTML += '</tr>';
     }
@@ -184,4 +177,42 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
         </table>
     `;
     return trainingPlanHTML;
+}
+
+function getRunFromCode(code){
+    if(code === "RD"){
+        return 'RACE DAY!';
+    }else if(code === "RE"){
+        return 'REST';
+    }else{
+        switch(code[0]){
+            case('R'):
+                return parseRun(runTypes.recovery[code[1]]);
+            case('B'):
+                return parseRun(runTypes.base[code[1]]);
+            case('E'):
+                return parseRun(runTypes.endQuick[code[1]]);
+            case('Q'):
+                return parseRun(runTypes.quickInterval[code[1]]);
+            case('S'):
+                return parseRun(runTypes.sprintInterval[code[1]]);
+        }
+    }
+}
+
+function parseRun(runArr){
+    let run = '';
+    run += parseRunSegment(runArr[0]);
+    for(let i = 1; i < runArr.length;i++){
+        run += `<br>${parseRunSegment(runArr[i])}`;
+    }
+    return run;
+}
+
+function parseRunSegment(runSegment){
+    if(runSegment.Repeat){
+        return `${runSegment.Repeat} x (Z${runSegment.Zone[0]}: ${runSegment.Time[0]} min, Z${runSegment.Zone[1]}: ${runSegment.Time[1]} min)`;
+    }else {
+        return `Z${runSegment.Zone}: ${runSegment.Time} mins`;
+    }
 }
