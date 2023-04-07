@@ -48,6 +48,14 @@ tbody tr:nth-child(2n){
     background-color: var(--gray-header-color);
 }
 
+h2 {
+    margin: 15px 0px 0px 0px;
+}
+
+p {
+    margin: 2px 0px 0px 0px;
+}
+
 .header{
     background-color: var(--header-color);
     font-family: "Playfair Display";
