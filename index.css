@@ -101,6 +101,14 @@ tbody tr:nth-child(2n){
     cursor: pointer;
 }
 
+.running-img {
+    margin: 10px;
+    max-height: 300px;
+    max-width: 100%;
+    float: right;
+    border-radius: 50%;
+}
+
 .container {
     max-width: 80%;
     margin: 0 auto;
@@ -109,6 +117,7 @@ tbody tr:nth-child(2n){
 
 .title {
     font-size: 5em;
+    display: inline;
 }
 
 .calculator-container {
