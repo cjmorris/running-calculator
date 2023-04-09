@@ -146,7 +146,7 @@ p {
 .calculator {
     display: inline-block;
     width: clamp(300px, 65%, 500px);
-    height: 400px;
+    min-height: 400px;
     margin: 5px;
     min-width: 300px;
 }
@@ -282,4 +282,27 @@ p {
 .tp-results-header-label{
     display: inline-block;
     flex-grow: 1;
+}
+
+@media (max-width: 850px){
+    .calculator-selector {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .unit-input-box {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .calculator-label {
+        text-align: center;
+        width: 100%;
+    }
 }

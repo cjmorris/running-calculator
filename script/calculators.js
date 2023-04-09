@@ -172,7 +172,6 @@ function parseSecondsToHHMMSS(seconds){
     }else {
         timeString = `${minuteValue}:${secondValue}`;
     }
-    console.log(timeString)
     return {
         hours: hourValue,
         minutes: minuteValue,
