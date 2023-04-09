@@ -137,20 +137,21 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
         <label for="results" class="tp-label tp-results-header-label">${heading} (${weeksToTrain} Weeks)</label>
         <button class="button tp-download-button">Download as pdf</button>
     </div>
-    <table class="centered-table training-plan-table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-                <th>Sunday</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="tp-table-results">
+        <table class="centered-table training-plan-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
     `;
 
     let trainingPlanWeeksLimited = [];
@@ -175,6 +176,7 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
     trainingPlanHTML += `
         </tbody>
         </table>
+        </div>
     `;
     return trainingPlanHTML;
 }

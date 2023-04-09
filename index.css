@@ -260,6 +260,10 @@ p {
     padding: 10px 15px; 
 }
 
+.tp-table-results {
+    overflow-x: auto;
+}
+
 .tp-input {
     width: 25%;
 }
@@ -284,6 +288,10 @@ p {
     flex-grow: 1;
 }
 
+.training-plan-table td {
+    white-space: nowrap;
+}
+
 @media (max-width: 850px){
     .calculator-selector {
         display: block;
@@ -305,4 +313,36 @@ p {
         text-align: center;
         width: 100%;
     }
+
+    .tp-input-container {
+        display: block;
+    }
+
+    .tp-input {
+        width: 100%;
+        text-align: center;
+    }
+
+    .tp-input .select {
+        width: 80%;
+    }
+
+    .tp-input .tp-label {
+        margin-top: 10px;
+        margin-bottom: 2px;
+    }
+
+    .tp-results-header {
+        min-height: 60px;
+        text-align: center;
+    }
+
+    .tp-results-header-label {
+        width: 100%;
+    }
+
+    .tp-download-button {
+        float:none;
+    }
+
 }
