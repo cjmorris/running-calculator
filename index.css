@@ -346,3 +346,17 @@ p {
     }
 
 }
+
+@media print{
+    body * {
+        visibility: hidden;
+      }
+      .tp-table-results, .tp-table-results * {
+        visibility: visible;
+      }
+      .tp-table-results {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+}

@@ -55,6 +55,8 @@ function updateTrainingPlan(e){
     const trainingTableDiv = document.querySelector('#tp-results');
     if (raceDistance !== '' && experienceLevel !== '' && weeksToTrain !== ''){
         trainingTableDiv.innerHTML = createTrainingPlan(raceDistance,experienceLevel,weeksToTrain);
+        const downloadTrainingPlanButton = document.querySelector('#tp-download-button');
+        downloadTrainingPlanButton.addEventListener('click',downloadTrainingPlan)
         trainingTableDiv.removeAttribute('hidden');
     }else {
         trainingTableDiv.setAttribute('hidden','');
@@ -135,7 +137,7 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
     let trainingPlanHTML = `
     <div class="row tp-results-header">
         <label for="results" class="tp-label tp-results-header-label">${heading} (${weeksToTrain} Weeks)</label>
-        <button class="button tp-download-button">Download as pdf</button>
+        <button id="tp-download-button" class="button tp-download-button">Print Training Plan</button>
     </div>
     <div class="tp-table-results">
         <table class="centered-table training-plan-table">
@@ -178,6 +180,7 @@ function parseTrainingPlan(trainingPlan,weeksToTrain,weeksToInclude,heading){
         </table>
         </div>
     `;
+
     return trainingPlanHTML;
 }
 
@@ -217,4 +220,8 @@ function parseRunSegment(runSegment){
     }else {
         return `Z${runSegment.Zone}: ${runSegment.Time} mins`;
     }
+}
+
+function downloadTrainingPlan(){
+    window.print();
 }
