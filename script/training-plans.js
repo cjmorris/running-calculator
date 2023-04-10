@@ -73,10 +73,10 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
                     trainingPlanContents = parseTrainingPlan(plans.novice5k,weeksToTrain,weeksToInclude5k,'Novice 5k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediate5k,weeksToTrain,weeksToInclude5k,'Intermediate 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.intermediate5k,weeksToTrain,weeksToInclude5k,'Intermediate 5k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advanced5k,weeksToTrain,weeksToInclude5k,'Advanced 5k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.advanced5k,weeksToTrain,weeksToInclude5k,'Advanced 5k Training Plan');
                     break;
                 default:
                     break;
@@ -85,13 +85,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('10km'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(novice10k,weeksToTrain,weeksToInclude10k,'Novice 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.novice10k,weeksToTrain,weeksToInclude10k,'Novice 10k Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediate10k,weeksToTrain,weeksToInclude10k,'Intermediate 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.intermediate10k,weeksToTrain,weeksToInclude10k,'Intermediate 10k Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advanced10k,weeksToTrain,weeksToInclude10k,'Advanced 10k Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.advanced10k,weeksToTrain,weeksToInclude10k,'Advanced 10k Training Plan');
                     break;
                 default:
                     break;
@@ -100,13 +100,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('HM'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(noviceHM,weeksToTrain,weeksToIncludeMarathons,'Novice Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.noviceHM,weeksToTrain,weeksToIncludeMarathons,'Novice Half Marathon Training Plan');
                     break;
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediateHM,weeksToTrain,weeksToIncludeMarathons,'Intermediate Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.intermediateHM,weeksToTrain,weeksToIncludeMarathons,'Intermediate Half Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advancedHM,weeksToTrain,weeksToIncludeMarathons,'Advanced Half Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.advancedHM,weeksToTrain,weeksToIncludeMarathons,'Advanced Half Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -115,13 +115,13 @@ function createTrainingPlan(raceDistance,experienceLevel,weeksToTrain){
         case('M'):
             switch(experienceLevel){
                 case('novice'):
-                    trainingPlanContents = parseTrainingPlan(noviceMarathon,weeksToTrain,weeksToIncludeMarathons,'Novice Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.noviceMarathon,weeksToTrain,weeksToIncludeMarathons,'Novice Marathon Training Plan');
                     break; 
                 case('intermediate'):
-                    trainingPlanContents = parseTrainingPlan(intermediateMarathon,weeksToTrain,weeksToIncludeMarathons,'Intermediate Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.intermediateMarathon,weeksToTrain,weeksToIncludeMarathons,'Intermediate Marathon Training Plan');
                     break;
                 case('advanced'):
-                    trainingPlanContents = parseTrainingPlan(advancedMarathon,weeksToTrain,weeksToIncludeMarathons,'Advanced Marathon Training Plan');
+                    trainingPlanContents = parseTrainingPlan(plans.advancedMarathon,weeksToTrain,weeksToIncludeMarathons,'Advanced Marathon Training Plan');
                     break;
                 default:
                     break;
@@ -201,6 +201,12 @@ function getRunFromCode(code){
                 return parseRun(runTypes.quickInterval[code[1]]);
             case('S'):
                 return parseRun(runTypes.sprintInterval[code[1]]);
+            case('M'):
+                return parseRun(runTypes.mediumDistance[code[1]]);
+            case('L'):
+                return parseRun(runTypes.longDistance[code[1]]);
+            case('F'):
+                return parseRun(runTypes.fastLongRun[code[1]]);                
         }
     }
 }
@@ -216,9 +222,17 @@ function parseRun(runArr){
 
 function parseRunSegment(runSegment){
     if(runSegment.Repeat){
-        return `${runSegment.Repeat} x (Z${runSegment.Zone[0]}: ${runSegment.Time[0]} min, Z${runSegment.Zone[1]}: ${runSegment.Time[1]} min)`;
+        if(runSegment.Distance){
+            return `${runSegment.Repeat} x (Z${runSegment.Zone[0]}: ${runSegment.Distance[0]} miles, <br>Z${runSegment.Zone[1]}: ${runSegment.Distance[1]} miles)`;
+        }else{
+            return `${runSegment.Repeat} x (Z${runSegment.Zone[0]}: ${runSegment.Time[0]} min, <br>Z${runSegment.Zone[1]}: ${runSegment.Time[1]} min)`;
+        }
     }else {
-        return `Z${runSegment.Zone}: ${runSegment.Time} mins`;
+        if(runSegment.Distance){
+            return `Z${runSegment.Zone}: ${runSegment.Distance} miles`;
+        }else{
+            return `Z${runSegment.Zone}: ${runSegment.Time} mins`;
+        }
     }
 }
 

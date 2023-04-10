@@ -44,6 +44,10 @@ tr:last-child td,th {
     border-bottom: 2px var(--darkish-gray-color) solid;
 }
 
+td {
+    padding: 3px;
+}
+
 tbody tr:nth-child(2n){
     background-color: var(--gray-header-color);
 }
@@ -350,13 +354,15 @@ p {
 @media print{
     body * {
         visibility: hidden;
-      }
-      .tp-table-results, .tp-table-results * {
+    }
+
+    .tp-table-results, .tp-table-results * {
         visibility: visible;
-      }
-      .tp-table-results {
+    }
+
+    .tp-table-results {
         position: absolute;
         left: 0;
         top: 0;
-      }
+    }
 }
