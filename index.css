@@ -150,7 +150,7 @@ p {
 .calculator {
     display: inline-block;
     width: clamp(300px, 65%, 500px);
-    min-height: 400px;
+    min-height: 410px;
     margin: 5px;
     min-width: 300px;
 }
